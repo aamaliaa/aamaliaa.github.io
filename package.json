@@ -1,0 +1,31 @@
+{
+  "name": "amaliaviti.github.io",
+  "version": "1.0.0",
+  "description": "Amalia Viti",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --progress --host 0.0.0.0 --colors",
+    "build": "webpack -p --progress --colors",
+    "webpack": "webpack --progress --colors"
+  },
+  "author": "Amalia Viti",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^5.6.18",
+    "babel-loader": "^5.3.1",
+    "css-loader": "^0.15.2",
+    "front-matter": "^1.0.0",
+    "marked": "^0.3.3",
+    "node-libs-browser": "^0.5.2",
+    "static-site-generator-webpack-plugin": "^1.0.0",
+    "stylus-loader": "^1.2.1",
+    "webpack": "^1.10.1",
+    "webpack-dev-server": "^1.10.1"
+  },
+  "dependencies": {
+    "moment": "^2.10.3",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "underscore": "^1.8.3"
+  }
+}

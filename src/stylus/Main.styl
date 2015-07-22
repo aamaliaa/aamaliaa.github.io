@@ -1,0 +1,54 @@
+$small-screen = 'screen and (max-width:736px)'
+$medium-screen = 'screen and (min-width:737px) and (max-width:1099px)'
+$small-and-medium-screen = 'screen and (max-width:1099px)'
+
+@import 'utils/*'
+@import 'components/*'
+
+html
+  background-color: $bg-color
+  border: 3px solid $text-color
+
+body
+  color: $text-color
+  font-family: $font-main
+  font-size: 1.3em
+  margin: 75px 100px 50px 100px
+  text-rendering: optimizeLegibility
+
+  @media $small-screen
+    font-size: 1em
+    margin: 20px
+
+a
+  color: $link-color
+  text-decoration: none
+  &:hover
+    color: lighten($link-color, 10)
+
+p
+  font-family: $font-main
+  margin: 1rem 0
+  line-height: 1.6em
+
+h1, h2, h3, h4, h5
+  font-family: $font-header
+
+// page title
+h1
+  font-size: 4em
+  margin: 0
+
+  @media $small-screen
+    text-align: center
+    font-size: 3em
+
+// section titles
+h2
+  text-align: center
+  text-transform: uppercase
+  font-size: 1.4em
+  margin-bottom: 1rem
+
+main
+  margin-bottom: 3rem
