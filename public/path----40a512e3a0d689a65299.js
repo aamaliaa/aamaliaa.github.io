@@ -1,0 +1,2 @@
+webpackJsonp([60335399758886],{107:function(a,i){a.exports={data:{site:{siteMetadata:{title:"AMALIA VITI",social:[{name:"Twitter",link:"//twitter.com/amaliaviti"},{name:"Github",link:"//github.com/aamaliaa"},{name:"LinkedIn",link:"//www.linkedin.com/in/amaliaviti"},{name:"Instagram",link:"//www.instagram.com/aamaliaa"},{name:"Soundcloud",link:"//soundcloud.com/amalia"}]}}},layoutContext:{}}}});
+//# sourceMappingURL=path----40a512e3a0d689a65299.js.map
