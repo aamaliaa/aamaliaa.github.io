@@ -1,0 +1,67 @@
+@import 'variables'
+@import 'utils/*'
+@import 'components/*'
+
+*
+  box-sizing: border-box
+
+html,
+body,
+#___gatsby,
+.root
+  height: 100%
+
+html
+  background-color: $bg-color
+
+body
+  color: $text-color
+  font-family: $font-main
+  font-size: 1.3em
+  margin: 0
+  padding: 50px 100px 0px 100px
+  text-rendering: optimizeLegibility
+
+  @media $small-screen
+    font-size: 1em
+    padding: 20px
+
+a
+  color: $link-color
+  text-decoration: none
+  &:hover
+    color: lighten($link-color, 10)
+
+p
+  font-family: $font-main
+  margin: 1rem 0
+  line-height: 1.6em
+
+h1, h2, h3, h4, h5
+  font-family: $font-header
+
+// page title
+h1
+  font-size: 4em
+  margin: 0
+
+  @media $small-screen
+    text-align: center
+    font-size: 3em
+
+// section titles
+h2
+  text-align: center
+  text-transform: uppercase
+  font-size: 1.4em
+  margin-bottom: 1rem
+
+.root
+  display: flex
+  flex-direction: column
+
+.notfound
+  text-align: center
+
+main
+  flex: 1 0 auto
