@@ -1,13 +1,16 @@
 import React from 'react'
+import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
-import { Helmet } from 'gatsby-plugin-react-helmet'
+
+import Layout from '../components/Layout'
 
 const Image = ({ image }) => image ?
   (
     <Img
-      key={image.childImageSharp.sizes.src}
-      sizes={image.childImageSharp.sizes}
+      key={image.childImageSharp.fluid.src}
+      fluid={image.childImageSharp.fluid}
     />
   ) : null
 
@@ -21,13 +24,13 @@ const Meta = ({ project }) => (
     {project.frontmatter.image && (
       <meta
         name="og:image"
-        content={project.frontmatter.image.childImageSharp.resize.src}
+        content={project.frontmatter.image.childImageSharp.fluid.src}
       />
     )}
     {project.frontmatter.image && (
       <meta
         name="twitter:image"
-        content={project.frontmatter.image.childImageSharp.resize.src}
+        content={project.frontmatter.image.childImageSharp.fluid.src}
       />
     )}
   </Helmet>
@@ -40,7 +43,8 @@ class Project extends React.Component {
   }
 
   render() {
-    const { html, frontmatter: { title, link, created, github, image } } = this.props.data.project
+    const { data, location } = this.props
+    const { frontmatter: { title, link, created, github, image } } = this.props.data.project
     const projectHostname = link && link.replace('http://', '');
     const projectLink = projectHostname ?
       (<OutboundLink className="project-site" href={link}>
@@ -52,18 +56,26 @@ class Project extends React.Component {
       </OutboundLink>) : null
 
     return (
-      <main className="project">
-        <h1 className="project-title">{title}</h1>
-        <h4>
-          {githubLink}
-          {projectLink}
-        </h4>
-        <Image image={image} />
-        <div dangerouslySetInnerHTML={this.createMarkup()} />
-        <h5>
-          {created}
-        </h5>
-      </main>
+      <Layout
+        data={data}
+        location={location}
+      >
+        <>
+          <Meta project={data.project} />
+          <main className="project">
+            <h1 className="project-title">{title}</h1>
+            <h4>
+              {githubLink}
+              {projectLink}
+            </h4>
+            <Image image={image} />
+            <div dangerouslySetInnerHTML={this.createMarkup()} />
+            <h5>
+              {created}
+            </h5>
+          </main>
+        </>
+      </Layout>
     )
   }
 }
@@ -71,7 +83,7 @@ class Project extends React.Component {
 export default Project
 
 export const query = graphql`
-  query ProjectQuery($slug: String!) {
+  query($slug: String!) {
     project: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
@@ -81,8 +93,8 @@ export const query = graphql`
         github
         image {
           childImageSharp {
-            sizes(maxWidth: 790) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 790) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

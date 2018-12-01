@@ -1,28 +1,34 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { graphql } from 'gatsby'
 
+import Layout from '../components/Layout'
 import ProjectList from '../components/ProjectList'
 
 const ProjectsPage = (props) => {
-  const { data: { projects } } = props
-  const projectList = projects.edges.map((edge) => edge.node)
+  const { data, location } = props
+  const projectList = data.projects.edges.map((edge) => edge.node)
 
   return (
-    <ProjectList
-      title="All Projects"
-      projects={projectList}
-    />
+    <Layout
+      data={data}
+      location={location}
+    >
+      <ProjectList
+        title="All Projects"
+        projects={projectList}
+      />
+    </Layout>
   )
 }
 
 export default ProjectsPage
 
 export const ProjectsQuery = graphql`
-  query ProjectsQuery {
+  {
     projects: allMarkdownRemark(
       sort: { fields: [frontmatter___created], order: DESC },
       filter: {
-        fileAbsolutePath: { regex: "/(\/content\/projects)\/.*\\.md$/" },
+        fileAbsolutePath: { regex: "/(\/content\/projects)\/.*.md$/" },
       },
     ) {
       edges {

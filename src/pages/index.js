@@ -1,31 +1,38 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { graphql } from 'gatsby'
 
+import Layout from '../components/Layout'
 import About from '../components/About'
 import ProjectList from '../components/ProjectList'
 
 const IndexPage = (props) => {
-  const { data: { about, site: { siteMetadata }, projects } } = props
+  const { data, location } = props
+  const { about, site: { siteMetadata }, projects } = data
   const projectList = projects.edges.map((edge) => edge.node)
 
   return (
-    <div>
-      <About
-        title={siteMetadata.title}
-        blurb={about.html}
-      />
-      <ProjectList
-        title="Featured Projects"
-        projects={projectList}
-      />
-    </div>
+    <Layout
+      data={data}
+      location={location}
+    >
+      <div>
+        <About
+          title={siteMetadata.title}
+          blurb={about.html}
+        />
+        <ProjectList
+          title="Featured Projects"
+          projects={projectList}
+        />
+      </div>
+    </Layout>
   )
 }
 
 export default IndexPage
 
 export const IndexQuery = graphql`
-  query IndexQuery($path: String!) {
+  query($path: String!) {
     site {
       siteMetadata {
         title
@@ -37,7 +44,7 @@ export const IndexQuery = graphql`
     projects: allMarkdownRemark(
       sort: { fields: [frontmatter___created], order: DESC },
       filter: {
-        fileAbsolutePath: { regex: "/(\/content\/projects)\/.*\\.md$/" },
+        fileAbsolutePath: { regex: "/(\/content\/projects)\/.*.md$/" },
         frontmatter: { featured: { eq: true } },
       },
     ) {

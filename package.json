@@ -3,18 +3,20 @@
   "version": "1.0.0",
   "author": "Amalia Viti",
   "dependencies": {
-    "gatsby": "^1.9.247",
-    "gatsby-image": "^1.0.51",
-    "gatsby-link": "^1.6.40",
-    "gatsby-plugin-google-analytics": "^1.0.31",
-    "gatsby-plugin-react-helmet": "^2.0.10",
-    "gatsby-plugin-sharp": "^1.6.44",
-    "gatsby-plugin-stylus": "^1.1.20",
-    "gatsby-remark-images": "^1.5.63",
-    "gatsby-source-filesystem": "^1.5.35",
-    "gatsby-transformer-remark": "^1.7.41",
-    "gatsby-transformer-sharp": "^1.6.24",
-    "gh-pages": "^1.1.0",
+    "gatsby": "^2.0.59",
+    "gatsby-image": "^2.0.22",
+    "gatsby-plugin-google-analytics": "^2.0.8",
+    "gatsby-plugin-react-helmet": "^3.0.3",
+    "gatsby-plugin-sharp": "^2.0.14",
+    "gatsby-plugin-stylus": "^2.0.3",
+    "gatsby-remark-copy-linked-files": "^2.0.7",
+    "gatsby-remark-images": "^3.0.1",
+    "gatsby-source-filesystem": "^2.0.10",
+    "gatsby-transformer-remark": "^2.1.15",
+    "gatsby-transformer-sharp": "^2.1.9",
+    "gh-pages": "^2.0.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0"
   },
   "license": "MIT",
@@ -26,6 +28,6 @@
     "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "devDependencies": {
-    "prettier": "^1.12.0"
+    "prettier": "^1.15.3"
   }
 }

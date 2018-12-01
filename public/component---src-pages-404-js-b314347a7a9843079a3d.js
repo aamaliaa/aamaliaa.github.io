@@ -1,2 +1,0 @@
-webpackJsonp([0x9427c64ab85d],{206:function(e,t,u){"use strict";function a(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var l=u(2),n=a(l),d=function(){return n.default.createElement("div",{className:"notfound"},n.default.createElement("img",{src:"https://media.giphy.com/media/l0HlvtIPzPdt2usKs/giphy.gif"}),n.default.createElement("h1",null,"404"))};t.default=d,e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-404-js-b314347a7a9843079a3d.js.map
